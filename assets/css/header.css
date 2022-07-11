@@ -1,0 +1,116 @@
+.container header {
+  height: 100%;
+  width: 0;
+  transition: 0.5s;
+}
+.container header nav {
+  height: inherit;
+  width: inherit;
+}
+.container header nav aside {
+  height: inherit;
+  position: fixed;
+  width: inherit;
+  background: #287bff;
+  border-left: 1rem solid #287bff;
+  transform: 0.5s;
+  left: 0;
+  overflow: hidden;
+}
+.container header nav aside ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 2rem;
+}
+.container header nav aside ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 3rem;
+  border-bottom-left-radius: 3rem;
+}
+.container header nav aside ul li a {
+  position: relative;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: #fff;
+}
+.container header nav aside ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+  text-align: center;
+}
+.container header nav aside ul li a .icon ion-icon {
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 30%;
+}
+.container header nav aside ul li a .title {
+  position: relative;
+  display: block;
+  padding: 0 1em;
+  height: 3rem;
+  font-size: 1.5rem;
+  line-height: 3rem;
+  text-align: start;
+}
+.container header nav aside ul li:nth-child(1) {
+  margin-bottom: 4rem;
+  pointer-events: none;
+}
+.container header nav aside ul li:hover {
+  background: #fff;
+}
+.container header nav aside ul li:hover a {
+  color: #287bff;
+}
+.container header nav aside ul li:hover a::before {
+  position: absolute;
+  right: 0;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  content: "";
+  border-radius: 50%;
+  top: -2rem;
+  box-shadow: 1rem 1rem 0 0.2rem #fff;
+  pointer-events: none;
+}
+.container header nav aside ul li:hover a::after {
+  position: absolute;
+  right: 0;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  content: "";
+  border-radius: 50%;
+  bottom: -2rem;
+  box-shadow: 1rem -1rem 0 0.2rem #fff;
+  pointer-events: none;
+}
+.container header.active {
+  width: 20rem;
+}
+@media (min-width: 414px) {
+  .container header {
+    width: 5rem;
+  }
+  .container header nav aside {
+    left: inherit;
+  }
+}
+@media (min-width: 800px) {
+  .container header.active {
+    width: 20rem;
+  }
+}
+
+/*# sourceMappingURL=header.css.map */
