@@ -97,7 +97,7 @@
   pointer-events: none;
 }
 .container header.active {
-  width: 5rem;
+  width: 20rem;
 }
 @media (min-width: 414px) {
   .container header {
@@ -369,8 +369,8 @@
   border-radius: 20px;
 }
 .container main.active {
-  width: calc(100% - 5rem);
-  left: 5rem;
+  width: calc(100% - 20rem);
+  left: 20rem;
 }
 @media (min-width: 414px) {
   .container main {
@@ -525,7 +525,7 @@
 }
 
 html {
-  font-size: 40%;
+  font-size: 50%;
 }
 
 body {
