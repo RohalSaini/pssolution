@@ -1,0 +1,127 @@
+@use "variables.scss" as v;
+
+.container {
+  header {
+    height: 100%;
+    width: 0;
+    transition: 0.5s;
+    nav {
+      height: inherit;
+      width: inherit;
+      aside {
+        height: inherit;
+        position: fixed;
+        width: inherit;
+        background: v.$blue;
+        border-left: 1rem solid v.$blue;
+        transform: 0.5s;
+        left: 0;
+        overflow: hidden;
+        ul {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          padding-top: 2rem;
+
+          li {
+            position: relative;
+            width: 100%;
+            list-style: none;
+            border-top-left-radius: 3rem;
+            border-bottom-left-radius: 3rem;
+
+            a {
+              position: relative;
+              width: 100%;
+              display: flex;
+              text-decoration: none;
+              color: v.$white;
+
+              .icon {
+                position: relative;
+                display: block;
+                min-width: 3rem;
+                height: 3rem;
+                line-height: 3rem;
+                text-align: center;
+                ion-icon {
+                  font-size: 2rem;
+                  position: absolute;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  left: 30%;
+                }
+              }
+              .title {
+                position: relative;
+                display: block;
+                padding: 0 1em;
+                height: 3rem;
+                font-size: 1.5rem;
+                line-height: 3rem;
+                text-align: start;
+              }
+            }
+            &:nth-child(1) {
+              margin-bottom: 4rem;
+              pointer-events: none;
+            }
+            &:hover {
+              background: v.$white;
+            }
+
+            &:hover a {
+              color: v.$blue;
+            }
+
+            &:hover a::before {
+              position: absolute;
+              right: 0;
+              width: 2rem;
+              height: 2rem;
+              background: transparent;
+              content: "";
+              border-radius: 50%;
+              top: -2rem;
+              box-shadow: 1rem 1rem 0 0.2rem #fff;
+              pointer-events: none;
+            }
+            &:hover a::after {
+              position: absolute;
+              right: 0;
+              width: 2rem;
+              height: 2rem;
+              background: transparent;
+              content: "";
+              border-radius: 50%;
+              bottom: -2rem;
+              box-shadow: 1rem -1rem 0 0.2rem #fff;
+              pointer-events: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  header.active {
+    width: 5rem;
+  }
+
+  @media (min-width: map-get(v.$screen-sizes, "mobile")) {
+    header {
+      width: 5rem;
+      nav {
+        aside {
+          left: inherit;
+        }
+      }
+    }
+  }
+  @media (min-width: map-get(v.$screen-sizes, "tablet")) {
+    header.active {
+      width: 20rem;
+    }
+  }
+}

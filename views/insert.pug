@@ -1,0 +1,76 @@
+doctype html
+html
+  head
+    title Add Item Page
+    style
+      include ../assets/css/nav.css
+    style
+      include ../assets/css/error.css
+    style
+      include ../assets/css/content.css
+    style
+      include ../assets/css/style.css
+    style
+      include ../assets/css/forms.css
+    script.
+      data =!{JSON.stringify(login)}  
+  body
+    include ./nav.pug
+    section(class="interface" id="interface") 
+      div(class="navigation")
+        div(class="n1")
+          div(class="menu" id="menu_btn")
+            div(class="line_1")
+            div(class="line_2")
+            div(class="line_3") 
+          div(class="search") 
+            input(type="text", name="" placeholder="Search")
+      form(class='form' id='form' onsubmit="onSave(event)")
+          div(class="text_field")
+            //label(for="names") Choose a item 
+            select(name="names" id="names") Choose a Item
+    
+          div(class="text_field")
+            input(
+			        type="number" step="0.001"
+              id='price'
+              required
+            ) 
+            span()
+            label(for="price") Price
+
+          div(class="text_field")
+            input(
+			        type="number"
+              id='weight'
+              required
+            ) 
+            span()
+            label(for="weight") Weight
+
+          div(class="text_field")
+            input(
+			        type="number" step="0.001"
+              id='discount'
+              required
+            ) 
+            span()
+            label(for="discount") Discount
+
+          div(class="text_field")
+            input(
+			        type="number"
+              id='total'
+              required
+            ) 
+            span()
+            label(for="total") Total  
+
+          input(
+            value ='Save'
+              type='submit'
+            )
+
+  include ./error.pug 
+script
+      include ../js/insert.js

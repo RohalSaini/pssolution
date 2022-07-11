@@ -1,0 +1,47 @@
+@use "header.scss";
+@use "main.scss";
+@use "brand.scss";
+@use "variables.scss" as v;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+html {
+    font-size: 40%;
+}
+
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    .container {
+        position: relative;
+        width: 100%;
+    }
+}
+
+
+::selection {
+    background: transparent;
+}
+
+
+// responsive font size is 
+@media (min-width: map-get(v.$screen-sizes, "tablet")) {
+    html {
+      font-size: 55%;
+    }
+}
+
+@media (min-width: map-get(v.$screen-sizes, "laptop")) {
+    html {
+      font-size: 66.5%;
+    }
+}
+
+// sass --watch assets/scss:assets/css

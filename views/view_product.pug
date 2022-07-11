@@ -1,0 +1,81 @@
+doctype html
+html
+  head
+    title Add Item Page
+    style
+      include ../assets/css/nav.css
+    style
+      include ../assets/css/content.css
+    style
+      include ../assets/css/style.css
+    style
+      include ../assets/css/error.css    
+    script.
+      data =!{JSON.stringify(login)}
+    script
+      include ../js/edit.js  
+  body
+    include ./nav.pug
+    section(class="interface" id="interface") 
+      div(class="navigation")
+        div(class="n1")
+          div(class="menu" id="menu_btn")
+            div(class="line_1")
+            div(class="line_2")
+            div(class="line_3") 
+          div(class="search") 
+            input(type="text", name="" placeholder="Search")
+        
+        div(class="profile")
+          img(src="images/logo.png", alt="profile")
+      h3(class="page") Dashbaord
+      div(class="values")
+        div(class="val-box")
+          img(src="images/logo.png", alt="")
+          div 
+            h3 8,267
+            span Total Orders
+        div(class="val-box")
+          img(src="images/logo.png", alt="")
+          div 
+            h3 2,267
+            span Product Sell
+        div(class="val-box")
+          img(src="images/logo.png", alt="")
+          div 
+            h3 5,267
+            span Alvailable
+        div(class="val-box")
+          img(src="images/logo.png", alt="")
+          div 
+            h3 1,200
+            span This Month
+        
+      dir(class="board")
+        table(class="board_table")  
+          thead
+            tr
+              td ID
+              td Name
+              td Units
+              td Type
+              td Edit
+              td Delete              
+          tbody
+          each item in login
+              tr
+                td(class="people-designation")
+                  p=item.id 
+                td(class="people-designation")
+                  input(type="text", name="date", value=item.name readonly  required)
+                td(class="people-designation")
+                  input(type="text", name="date", value=item.measurement readonly  required)                  
+                td(class="people-designation")
+                  input(type="text", name="date", value=item.type readonly  required)   
+                td(class="edit" id=item.id)
+                  button(type='button' class=' btn' value="Continue" onclick=`onEdit('${JSON.stringify(item)}')`) Edit
+                td(class="edit")
+                  button(type='button' class=' btn' value="Continue" onclick=`onDelete('${JSON.stringify(item)}')`) Delete   
+  include ./error.pug
+script
+      include ../js/menu.js

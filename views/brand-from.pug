@@ -1,0 +1,28 @@
+main
+    div(class="topbar")
+        div( class="toggle")
+            <ion-icon name="grid-outline"></ion-icon> 
+        div(class="search")
+            label
+                input(type="text" placeholder="Search Here")
+                <ion-icon name="search-circle-outline" class="search-circle-outline"></ion-icon>
+        // user
+        div(class="user")
+            img(src="./images/avtar.jpg", alt="" style=" width: 3rem; height: 3rem")   
+
+    section(id="brand")
+        div(class="brand-content")
+            div(class="title") Add Brand 
+            p you can add brand to database from here !!!
+            form(action="#" onsubmit="onSaveBrand(event)")
+                div(class="user-details")
+                    div(class='input-box')
+                        span(class="brand-details") Brand Name
+                        input(type="text" placeholder="Enter Brand Name" required)
+                    div(class='input-box')
+                        span(class="brand-details") Upoad Image
+                        div(class="file")
+                             input(type="file" placeholder="Select Image to uplaod" required)
+                    div(class='button')
+                        input(type="submit" value="Register")
+

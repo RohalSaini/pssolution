@@ -1,0 +1,78 @@
+doctype html
+html
+  head
+    title Add Item Page
+    style
+      include ../assets/css/nav.css
+    style
+      include ../assets/css/forms.css        
+    style
+      include ../assets/css/content.css
+    style
+      include ../assets/css/error.css  
+    style
+      include ../assets/css/style.css  
+  body
+    include ./nav.pug
+    section(class="interface" id="interface") 
+      div(class="navigation")
+        div(class="n1")
+          div(class="menu" id="menu_btn")
+            div(class="line_1")
+            div(class="line_2")
+            div(class="line_3") 
+          div(class="search") 
+            input(type="text", name="" placeholder="Search")
+      
+      form(class='form' id='form' onsubmit="onSave(event)")  
+          div(class="text_field")
+            input(
+              type="text"
+              id= 'serialNumber'
+              required
+            ) 
+            span()
+            label(for="serialNumber") serial Number
+
+          div(class="text_field")
+            input(
+              type="text"
+              id= 'name'
+              required
+            ) 
+            span()
+            label(for="name") Name  
+
+          div(class="text_field")
+            input(
+              type="text"
+              id= 'measurement'
+              required
+            ) 
+            span()
+            label(for="measurement") Measurement
+          
+          select(name='type' id='type')
+            option(value="food") Food
+            option(value="vegetables") Vegetables
+            option(value="oil") Oil
+            option(value="shirts") Shirts
+          
+          div(class="text_field")
+            input(
+              type="file"
+              id='image'
+              required
+            ) 
+            span() 
+            
+          input(
+            value ='Add'
+              type='submit'
+            )
+
+  include ./error.pug       
+script
+      include ../js/menu.js
+script 
+      include ../js/addProductList.js
