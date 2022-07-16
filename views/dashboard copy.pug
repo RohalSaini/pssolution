@@ -1,0 +1,149 @@
+doctype html
+html
+  head
+    title Add Item Page
+    style
+      include ../assets/css/nav.css
+    style
+      include ../assets/css/content.css
+    style
+      include ../assets/css/style.css  
+  body
+    include ./nav.pug
+    section(class="interface" id="interface") 
+      div(class="navigation")
+        div(class="n1")
+          div(class="menu" id="menu_btn")
+            div(class="line_1")
+            div(class="line_2")
+            div(class="line_3") 
+          div(class="search") 
+            input(type="text", name="" placeholder="Search")
+        
+        div(class="profile")
+          img(src="images/logo.png", alt="profile")
+      h3(class="page") Dashbaord
+      div(class="values")
+        div(class="val-box")
+          img(src="images/logo.png", alt="")
+          div 
+            h3 8,267
+            span Total Orders
+        div(class="val-box")
+          img(src="images/logo.png", alt="")
+          div 
+            h3 2,267
+            span Product Sell
+        div(class="val-box")
+          img(src="images/logo.png", alt="")
+          div 
+            h3 5,267
+            span Alvailable
+        div(class="val-box")
+          img(src="images/logo.png", alt="")
+          div 
+            h3 1,200
+            span This Month
+        
+      dir(class="board")
+        table(class="board_table")  
+          thead
+            tr
+              td Name
+              td Title
+              td Status 
+              td Role
+              td               
+          tbody
+            tr
+              td(class="people")
+                img(src="images/avtar.jpg", alt="")
+                div
+                  h5 John Doe 
+                  p john@john.com
+              td(class="people-designation")
+                h5 Software Engineer
+                p Web dev
+              td(class="active")
+                p Active
+              td(class="role")
+                p Owner
+              td(class="edit")
+                a(href="#") Edit 
+            tr
+              td(class="people")
+                img(src="images/avtar.jpg", alt="")
+                div
+                  h5 John Doe 
+                  p john@john.com
+              td(class="people-designation")
+                h5 Software Engineer
+                p Web dev
+              td(class="active")
+                p Active
+              td(class="role")
+                p Owner
+              td(class="edit")
+                a(href="#") Edit
+            tr
+              td(class="people")
+                img(src="images/avtar.jpg", alt="")
+                div
+                  h5 John Doe 
+                  p john@john.com
+              td(class="people-designation")
+                h5 Software Engineer
+                p Web dev
+              td(class="active")
+                p Active
+              td(class="role")
+                p Owner
+              td(class="edit")
+                a(href="#") Edit 
+            tr
+              td(class="people")
+                img(src="images/avtar.jpg", alt="")
+                div
+                  h5 John Doe 
+                  p john@john.com
+              td(class="people-designation")
+                h5 Software Engineer
+                p Web dev
+              td(class="active")
+                p Active
+              td(class="role")
+                p Owner
+              td(class="edit")
+                a(href="#") Edit 
+            tr
+              td(class="people")
+                img(src="images/avtar.jpg", alt="")
+                div
+                  h5 John Doe 
+                  p john@john.com
+              td(class="people-designation")
+                h5 Software Engineer
+                p Web dev
+              td(class="active")
+                p Active
+              td(class="role")
+                p Owner
+              td(class="edit")
+                a(href="#") Edit 
+            tr
+              td(class="people")
+                img(src="images/avtar.jpg", alt="")
+                div
+                  h5 John Doe 
+                  p john@john.com
+              td(class="people-designation")
+                h5 Software Engineer
+                p Web dev
+              td(class="active")
+                p Active
+              td(class="role")
+                p Owner
+              td(class="edit")
+                a(href="#") Edit 
+script
+      include ../js/menu.js

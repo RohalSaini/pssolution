@@ -1,0 +1,57 @@
+doctype html
+html
+  head
+    title Add Item Page
+    style
+      include ../assets/css/navigation.css
+    style
+      include ../assets/css/error.css
+    style
+      include ../assets/css/forms.css
+    script 
+      include ../js/addProductList.js
+  body
+  include ./navigation.pug
+  form(class='form' id='form' onsubmit="onSave(event)")  
+          div(class="text_field")
+            input(
+              type="text"
+              id= 'serialNumber'
+              required
+            ) 
+            span()
+            label(for="serialNumber") serial Number
+
+          div(class="text_field")
+            input(
+              type="text"
+              id= 'name'
+              required
+            ) 
+            span()
+            label(for="name") Name
+
+          div(class="text_field")
+            input(
+              type="text"
+              id= 'type'
+              required
+            ) 
+            span()
+            label(for="type") Type
+
+          div(class="text_field")
+            input(
+              type="text"
+              id= 'measurement'
+              required
+            ) 
+            span()
+            label(for="measurement") Measurement
+
+          input(
+            value ='Add'
+              type='submit'
+            )
+
+  include ./error.pug 

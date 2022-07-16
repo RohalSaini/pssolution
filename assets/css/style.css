@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    width: 100%;
+    background: #E5E7EB;
+    position: relative;
+}
+
+#names {
+    margin-top: 100px;
+}
