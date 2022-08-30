@@ -12,6 +12,5 @@ const
     Router()
         .get("/items",checkToken,getProduct)
         .get("/name",checkToken,getNames)
-        .get("/type",checkToken,getByType)
     
 module.exports = item;

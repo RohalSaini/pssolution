@@ -1,0 +1,41 @@
+main
+    div(class="topbar")
+        div( class="toggle")
+            <ion-icon name="grid-outline"></ion-icon> 
+        div(class="search")
+            label
+                input(type="text" placeholder="Search Here")
+                <ion-icon name="search-circle-outline" class="search-circle-outline"></ion-icon>
+        // user
+        div(class="user")
+            img(src="./images/system/avtar.jpg", alt="" style=" width: 3rem; height: 3rem")   
+
+    section(id="brand")
+        div(class="brand-content")
+            div(class="title") Edit Brand 
+            p you can edit brand to database from here !!!
+            form(action="#" onsubmit="onSaveBrand(event)" id="form")
+                div(class="user-details")
+                    div(class='input-box')
+                        span(class="brand-details") Brand Name
+                        select(name='brand' id='brandId' onchange="onChangeBrand(this)")
+
+                    div(class='input-box quantity')
+                        span(class="brand-details") Category
+                        select(name='category' id='category'  onchange="onChangeCategory(this)")
+                            option(value="Cooking essentials") Cooking essentials
+                            option(value="Packages food") Packages food
+                            option(value="Health And beauty") Health And beauty
+                            option(value="Baby Care") Baby Care    
+                            option(value="Men Care") Men Care
+                            option(value="Women Care") Women Care                      
+                    div(class='input-box')
+                        span(class="brand-details") Quanity||Stock
+                        textarea( id="stockId" name="stockId" rows="4" cols="30")                      
+
+                    div(class='input-box')
+                        span(class="brand-details") Add Quantity
+                        input(type="text" placeholder="Enter Quantity  15kg,20kg,25kg" required id="add")                     
+                    div(class='button')
+                        input(type="submit" value="Add Brand")
+

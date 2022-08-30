@@ -8,21 +8,29 @@ main
                 <ion-icon name="search-circle-outline" class="search-circle-outline"></ion-icon>
         // user
         div(class="user")
-            img(src="./images/avtar.jpg", alt="" style=" width: 3rem; height: 3rem")   
+            img(src="./images/system/avtar.jpg", alt="" style=" width: 3rem; height: 3rem")   
 
     section(id="brand")
         div(class="brand-content")
             div(class="title") Add Brand 
             p you can add brand to database from here !!!
-            form(action="#" onsubmit="onSaveBrand(event)")
+            form(action="#" onsubmit="onSaveBrand(event)" id="form")
                 div(class="user-details")
                     div(class='input-box')
                         span(class="brand-details") Brand Name
                         input(type="text" placeholder="Enter Brand Name" required)
+                    div(class='input-box quantity')
+                        span(class="brand-details") Category
+                        select(name='category' id='category')
+                            option(value="Cooking essentials") Cooking essentials
+                            option(value="Packages food") Packages food
+                            option(value="Health And beauty") Health And beauty
+                            option(value="Baby Care") Baby Care    
+                            option(value="Men Care") Men Care
+                            option(value="Women Care") Women Care                      
                     div(class='input-box')
-                        span(class="brand-details") Upoad Image
-                        div(class="file")
-                             input(type="file" placeholder="Select Image to uplaod" required)
+                        span(class="brand-details") Quantity
+                        input(type="text" placeholder="Enter Quantity  15kg,20kg,25kg" required)                     
                     div(class='button')
-                        input(type="submit" value="Register")
+                        input(type="submit" value="Add Brand")
 

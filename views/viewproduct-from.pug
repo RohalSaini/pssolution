@@ -1,0 +1,46 @@
+main
+    div(class="topbar")
+        div( class="toggle")
+            <ion-icon name="grid-outline"></ion-icon> 
+        div(class="search")
+            label
+                input(type="text" placeholder="Search Here")
+                <ion-icon name="search-circle-outline" class="search-circle-outline"></ion-icon>
+        // user
+        div(class="user")
+            img(src="./images/system/avtar.jpg", alt="" style=" width: 3rem; height: 3rem")   
+
+    section(id="brand")
+        div(class="brand-content")
+            div(class="title") View Product 
+            p you can view product to database from here !!!
+            form(action="#" onsubmit="onSaveProduct(event)" id="form")
+                div(class="user-details" id="userForm")
+                    div(class='input-box quantity')
+                        span(class="brand-details") Brand
+                        select(name='brand' id='brands' onchange="onChangeBrand(this)" ) 
+                    div(class='input-box quantity')
+                        span(class="brand-details") Category
+                        select(name='category' id='category' onchange="onChangeCategory(this)")
+                    div(class='input-box quantity')
+                        span(class="brand-details") Quantity
+                        select(name='quantity' id='quantity')
+                    div(class='input-box')
+                        span(class="brand-details") Product ID
+                        select(name='category' id='productId')
+                    div(class='input-box')
+                        span(class="brand-details") Name
+                        select(name='category' id='name')
+                        
+                    div(class='input-box')
+                        span(class="brand-details") Price
+                        select(name='category' id='price')
+                    div(class='input-box')
+                        span(class="brand-details") Discount
+                        select(name='category' id='discount')         
+                    div(class='input-box')
+                        span(class="brand-details") Our Price
+                        select(name='category' id='ourPrice')                                                                         
+                    div(class='button')
+                        input(type="button" value="View Image" id="imageId")
+

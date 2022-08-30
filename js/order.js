@@ -1,148 +1,251 @@
-async function showList(list) {
-  console.dir(list);
-  list.forEach((element) => {
-    document.getElementById(`${element.id}`).nextElementSibling.childNodes[0].onclick = async function () {
-      // const notificationRef = document.getElementById("notification");
-      // const heading = document.getElementById("msg");
+const tableBodyRef = document.getElementById("table");
+const modal = document.getElementById("myModal");
+const btn = document.getElementById("myBtn");
+const span = document.getElementsByClassName("close")[0];
 
-      // let response = await fetch(`/admin/itemdelete?name=${element.id}`, {
-      //   method: "DELETE",
-      //   headers: {
-      //     Accept: "application/json",
-      //     "Content-Type": "application/json",
-      //     Authorization: "Bearer " + localStorage.getItem("token"),
-      //   },
-      // });
+const popup = document.getElementById("popup");
+const msg = document.getElementById("popup_msg");
+const yes = document.getElementById("yes");
+const no = document.getElementById("no");
 
-      // if (response.ok) {
-      //   let json = await response.json();
-      //   console.log("API Login Successfully");
-      //   notificationRef.classList.remove("hide");
-      //   notificationRef.classList.add("show");
 
-      //   heading.innerHTML = "Item has been delted succesfully!!";
-      //   window.location.replace("/viewProduct");
-      //   setTimeout(() => {
-      //     notificationRef.classList.add("hide");
-      //     notificationRef.classList.remove("show");
-      //   }, 3000);
-      // } else {
-      //   let error = await response.json();
-      //   console.log("API ITEM ERROR", error);
-      //   notificationRef.classList.remove("hide");
-      //   notificationRef.classList.add("show");
-      //   heading.innerHTML = "Error While Reciving..";
-      //   setTimeout(() => {
-      //     notificationRef.classList.add("hide");
-      //     notificationRef.classList.remove("show");
-      //   }, 3000);
-      // }
-    };
+const okModalRef = document.getElementById("okModal");
+const okModalOkButtonSubmissionRef = document.getElementById("ok-Modal-ok-Submission");
+const orderRef = document.getElementById("order");
+const orderType = document.getElementById("orderType");
+const nameRef = document.getElementById("name");
+const cellRef = document.getElementById("cell");
+const customerBill = document.getElementById("customerBill");
+const customerAddress = document.getElementById("customerAddress");
+const customerStock = document.getElementById("customerStock");
 
-    document.getElementById(`${element.id}`).onclick = async function () {
-      var td = document.getElementById(`${element.id}`);
-      if (td.textContent != "Save") {
-        td.parentElement.childNodes[1].childNodes[0].readOnly = false;
-        td.parentElement.childNodes[2].childNodes[0].readOnly = false;
-        td.parentElement.childNodes[3].childNodes[0].readOnly = true;
-        td.parentElement.childNodes[4].childNodes[0].textContent = "Save";
-      } else {
-        console.log("Call to Save");
-        // save edit api
-        console.dir(
-          "child Node 1",
-          td.parentElement.childNodes[1].childNodes[0].value
-        );
-        console.dir(
-          "child Node 2",
-          td.parentElement.childNodes[2].childNodes[0].value
-        );
-        console.dir(
-          "child Node 3",
-          td.parentElement.childNodes[3].childNodes[0].value
-        );
-        const name = td.parentElement.childNodes[1].childNodes[0].value;
-        const measurement = td.parentElement.childNodes[2].childNodes[0].value;
-        const type = td.parentElement.childNodes[3].childNodes[0].value;
-        if (name.length == 0) {
-          alert("Enter name field");
-          return;
-        } else if (measurement.length == 0) {
-          alert("Enter unit field");
-          return;
-        } else if (type.length == 0) {
-          alert("Enter type field");
-          return;
-        } else {
-          td.parentElement.childNodes[4].childNodes[0].textContent = "Edit";
-          const item = {
-            id: element.id,
-            serialNumber: element.serialNumber,
-            name,
-            measurement,
-            type,
-          };
-          console.dir(item);
-          td.parentElement.childNodes[1].childNodes[0].readOnly = true;
-          td.parentElement.childNodes[2].childNodes[0].readOnly = true;
-          td.parentElement.childNodes[3].childNodes[0].readOnly = true;
-          console.log("Token is ", localStorage.getItem("token"));
-          const notificationRef = document.getElementById("notification");
-          const heading = document.getElementById("msg");
-
-          let response = await fetch("/admin/editItem/", {
-            method: "POST",
-            body: JSON.stringify(item),
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-              Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-          });
-
-          if (response.ok) {
-            let json = await response.json();
-            console.log("API Login Successfully");
-            notificationRef.classList.remove("hide");
-            notificationRef.classList.add("show");
-
-            heading.innerHTML = "Item has been updated succesfully!!";
-            setTimeout(() => {
-              notificationRef.classList.add("hide");
-              notificationRef.classList.remove("show");
-            }, 3000);
-          } else {
-            let error = await response.json();
-            console.log("API ITEM ERROR", error);
-            notificationRef.classList.remove("hide");
-            notificationRef.classList.add("show");
-            heading.innerHTML = "Error While Reciving..";
-            setTimeout(() => {
-              notificationRef.classList.add("hide");
-              notificationRef.classList.remove("show");
-            }, 3000);
-          }
-        }
-      }
-    };
-  });
+const onView = (item) => {
+  console.log(item);
+  localStorage.setItem(
+    "item",
+    JSON.stringify({
+      ...item,
+    })
+  );
+  location.href = "/viewOrder";
 }
-showList(data);
-document.getElementById("menu_btn").addEventListener("click", function () {
-  const menuRef = document.getElementById("menu_btn");
-  const isContain = menuRef.classList.contains("active");
 
-  if (!isContain) {
-    console.log("It does not contain but it is added now");
-    menuRef.classList.add("active");
-    var asideRef = document.getElementById("menu_bar");
-    asideRef.style.left = 0;
-    var content = document.getElementById("interface");
-    content.style.marginLeft = 250;
+const onConfirm =  async (item,rowCount) => {
+  console.log("id is ",item);
+  let response = await fetch("/v1/confirmOrder", {
+    method: "POST",
+    body: JSON.stringify(item),
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  });
+  if (response.ok) {
+    let json = await response.json();
+    console.log("API Brand Successfully");
+    // notificationRef.classList.remove("hide");
+    // notificationRef.classList.add("show");
+
+    // heading.innerHTML =
+    //   "Brand has been updated succesfully to the database !!";
+    // setTimeout(() => {
+    //   notificationRef.classList.add("hide");
+    //   notificationRef.classList.remove("show");
+    // }, 3000);
+    //formRef.reset();
+    location.href ="/order";
+    
   } else {
-    console.log("It contains but now removed");
-    menuRef.classList.remove("active");
-    var asideRef = document.getElementById("menu_bar");
-    asideRef.style.left = -400;
+    let error = await response.json();
+    console.log("API ITEM ERROR", error);
+    notificationRef.classList.remove("hide");
+    notificationRef.classList.add("show");
+    heading.innerHTML = error.error;
+
+    setTimeout(() => {
+      notificationRef.classList.add("hide");
+      notificationRef.classList.remove("show");
+    }, 3000);
   }
-});
+}
+const onCancel =  async (item,rowCount) => {
+  console.log("id is ",item);
+  let response = await fetch("/v1/cancelOrder", {
+    method: "POST",
+    body: JSON.stringify(item),
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  });
+  if (response.ok) {
+    let json = await response.json();
+    console.log("API Brand Successfully");
+    // notificationRef.classList.remove("hide");
+    // notificationRef.classList.add("show");
+
+    // heading.innerHTML =
+    //   "Brand has been updated succesfully to the database !!";
+    // setTimeout(() => {
+    //   notificationRef.classList.add("hide");
+    //   notificationRef.classList.remove("show");
+    // }, 3000);
+    //formRef.reset();
+    //tableBodyRef.deleteRow(rowCount);
+    location.href ="/order";
+  } else {
+    let error = await response.json();
+    console.log("API ITEM ERROR", error);
+    notificationRef.classList.remove("hide");
+    notificationRef.classList.add("show");
+    heading.innerHTML = error.error;
+
+    setTimeout(() => {
+      notificationRef.classList.add("hide");
+      notificationRef.classList.remove("show");
+    }, 3000);
+  }
+}
+const insertRow = (item) => {
+  console.log(item);
+  let rowCount = table.rows.length;
+  var row = tableBodyRef.insertRow(rowCount);
+
+  var cell1 = row.insertCell(0);
+  var order = document.createElement("input");
+  order.type = "text";
+  order.name = "order";
+  order.value = item.orderNumber;
+  cell1.innerHTML = `${item.orderNumber}`;
+
+  var typecell = row.insertCell(1);
+  // var type = document.createElement("input");
+  // type.type = "text";
+  // type.name = "order";
+  // type.value = item.orderType;
+  typecell.innerHTML = `${item.orderType}`;
+
+  var cell2 = row.insertCell(2);
+  var name = document.createElement("input");
+  name.type = "button";
+  name.name = "name";
+  name.value = item.name;
+  cell2.innerHTML = `${item.name}`;
+  //  cell2.appendChild(name);
+  
+  var cell3 = row.insertCell(3);
+  var bill = document.createElement("input");
+  bill.type = "text";
+  bill.name = "brand";
+  bill.value = item.bill;
+  cell3.innerHTML = ` Rs ${item.bill}`;
+
+  var cell4 = row.insertCell(4);
+  var cell = document.createElement("input");
+  cell.type = "text";
+  cell.name = "cell";
+  cell.value = item.cell;
+  cell4.innerHTML = `${item.cell}`;
+
+  var cell5 = row.insertCell(5);
+  var view = document.createElement("input");
+  view.type = "button";
+  view.value = "View";
+
+  cell5.appendChild(view);
+  cell5.addEventListener("click", (e) => {
+    console.log(" on click is called")
+    console.log(item);
+    okModalRef.style.display= "block";
+    orderRef.textContent= "";
+    cellRef.textContent= "";
+    nameRef.textContent = "";
+    customerAddress.textContent= "";
+    customerBill.textContent = "";
+    customerStock.textContent = "";
+    orderRef.textContent = "orderId " +item.orderNumber;
+    cellRef.textContent = " cell : " +item.cell;
+    nameRef.textContent = item.name;
+    orderType.textContent = "ordeType : " +item.orderType;
+    customerAddress.innerHTML = item.address + "<br>"+" OrderOn : "+item.createdAt;
+    customerBill.textContent = "Rs "+item.bill;
+    const items = JSON.parse(item.cart);
+    //console.log(" cart is ",items);
+    items.forEach((element) => {
+      customerStock.innerHTML += element.name+ "[id ="+element.id+"] " + "  == Quantity ["+ element.add + "]";
+      customerStock.innerHTML +=" <br />";
+    })
+    
+    //customerStock.text = string;
+    okModalOkButtonSubmissionRef.onclick = () => {
+      okModalRef.style.display = "none"
+    }
+    window.onclick = (event) => {
+      if (event.target == okModalRef) {
+        okModalRef.style.display = "none"
+      }
+    }
+  });
+
+  var cell6 = row.insertCell(6);
+  var confirm = document.createElement("input");
+  confirm.type = "button";
+  confirm.value = "Ship";
+  cell6.appendChild(confirm);
+  cell6.addEventListener("click", (e) => {
+    // localStorage.setItem("action", "view");
+    // onView(item);
+    //console.log(" ok report")
+    popup.style.display= "block";
+    msg.textContent = "You are going to confirm the order !"
+    console.log(" view clicked")
+    no.onclick = () => {
+      popup.style.display = "none"
+    }
+
+    yes.onclick = () => {
+      onConfirm(item,rowCount);
+    }
+    window.onclick = function(event) {
+      if (event.target == popup) {
+        popup.style.display = "none"
+      }
+    }
+    //onConfirm(item,rowCount);
+  });
+  var cell7 = row.insertCell(7);
+  var confirm = document.createElement("input");
+  confirm.type = "button";
+  confirm.value = "Cancel Order";
+  cell7.appendChild(confirm);
+  cell7.addEventListener("click", (e) => {
+    // localStorage.setItem("action", "view");
+    // onView(item);
+    console.log(" cancel order")
+    popup.style.display= "block";
+    msg.textContent = "You are going to cancel the order !"
+    console.log(" view clicked")
+    no.onclick = () => {
+      popup.style.display = "none"
+    }
+
+    yes.onclick = () => {
+      onCancel(item,rowCount);
+    }
+    window.onclick = function(event) {
+      if (event.target == popup) {
+        popup.style.display = "none"
+      }
+    }
+  });
+};
+
+const show = () => {
+  dataObj.orders.reverse();
+  dataObj.orders.forEach((element) => {
+    //console.log(element);
+    insertRow(element)
+  })
+};
+
+show();

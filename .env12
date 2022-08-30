@@ -1,0 +1,5 @@
+MYSQL_HOST = localhost
+MYSQL_PORT = 3306
+MYSQL_USER = ieltswal_test
+MYSQL_PASSWORD = test123@test123@
+MYSQL_DATABASE = ieltswal_test123

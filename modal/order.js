@@ -12,7 +12,7 @@ const Order = sequelize.define("order", {
     allowNull: false,
   },
   cart: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull:false
   },
   address: {
@@ -25,6 +25,18 @@ const Order = sequelize.define("order", {
   },
   checked: {
     type: Sequelize.BOOLEAN,
+    default: false
+  },
+  orderType: {
+    type:Sequelize.STRING,
+    default: false
+  },
+  name: {
+    type: Sequelize.STRING,
+    default: false
+  },
+  cell: {
+    type: Sequelize.BIGINT,
     default: false
   }
 });

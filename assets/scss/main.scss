@@ -10,6 +10,7 @@
     transition: 0.5s;
 
     .topbar {
+      padding: 2rem;
       position: relative;
       width: 100%;
       height: 5rem;
@@ -309,8 +310,8 @@
   // }
   @media (min-width: map-get(v.$screen-sizes, "mobile")) {
     main {
-      width: calc(100% - 5rem);
-      left: 5rem;
+      width: calc(100% - 0rem);
+      left: 0;
       .cardBox {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -319,9 +320,9 @@
         width: 100%;
         padding: 20px;
         display: grid;
-        grid-template-columns: 2fr 1fr;
-        .recentOrders {
-          overflow: auto;
+        //grid-template-columns: 1fr 1fr;
+        .recentCustomers {
+          display: none;
         }
       }
     }

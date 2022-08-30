@@ -1,0 +1,30 @@
+main
+   div(class="topbar")
+      div( class="toggle")
+        <ion-icon name="grid-outline"></ion-icon> 
+      div(class="search")
+        label
+            input(type="text" placeholder="Search Here" id="search")
+            <ion-icon name="search-circle-outline" class="search-circle-outline"></ion-icon>
+      // user
+      div(class="user")
+        img(src="./images/system/avtar.jpg", alt="" style=" width: 3rem; height: 3rem")   
+   div(class="details")
+      // order detail list
+      div(class="recentOrders")
+         div(class="cardHeader")
+            h2 Recent Products
+            a(href="#" class="btn") View All
+         table
+            thead
+               tr
+                  td Name 
+                  td Category
+                  td Brand
+                  td Quantity
+                  td Price 
+                  td Our Price 
+                  td Discount
+                  td Stock
+                  td Delete
+            tbody(id="table")

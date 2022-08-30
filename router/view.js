@@ -101,7 +101,10 @@ const
         console.log(list);
         res.render('view_product', { login: list })
     })
-    .get('/insert/',async (req,res) => {
+    .get('/search', async (req,res) => {
+        res.render('search');
+    })
+    .get('/insert/',async (req,res) => {0
         const item = await Item.findAll();
         //const items = item.getItem();
         console.log("Items are ");

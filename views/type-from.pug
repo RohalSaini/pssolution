@@ -1,0 +1,24 @@
+main
+    div(class="topbar")
+        div( class="toggle")
+            <ion-icon name="grid-outline"></ion-icon> 
+        div(class="search")
+            label
+                input(type="text" placeholder="Search Here")
+                <ion-icon name="search-circle-outline" class="search-circle-outline"></ion-icon>
+        // user
+        div(class="user")
+            img(src="./images/system/avtar.jpg", alt="" style=" width: 3rem; height: 3rem")   
+
+    section(id="brand")
+        div(class="brand-content")
+            div(class="title") Add Type of Product
+            p you can add type of product  to database from here !!!
+            form(action="#" onsubmit="onSaveType(event)" id="form")
+                div(class="user-details")
+                    div(class='input-box')
+                        span(class="brand-details") Type Name
+                        input(type="text" placeholder="Enter Type Name" required)
+                    div(class='button')
+                        input(type="submit" value="Register")
+

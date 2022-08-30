@@ -8,7 +8,7 @@ main
             <ion-icon name="search-circle-outline" class="search-circle-outline"></ion-icon>
       // user
       div(class="user")
-        img(src="./images/avtar.jpg", alt="" style=" width: 3rem; height: 3rem")   
+        img(src="./images/system/avtar.jpg", alt="" style=" width: 3rem; height: 3rem")   
 
    //cards
    div(class="cardBox")
@@ -40,88 +40,27 @@ main
       // order detail list
       div(class="recentOrders")
          div(class="cardHeader")
-            h2 Recent Orders
+            h2 Recent Products
             a(href="#" class="btn") View All
          table
             thead
                tr
-                  td Name
+                  td Name 
+                  td Category
+                  td Brand
+                  td Quantity
                   td Price 
-                  td Payment 
-                  td Status
-            tbody
-               tr
-                  td Star Refrigerator
-                  td $12000
-                  td Paid
-                  td
-                     span(class="status delivered") Delivered      
-               tr
-                  td Cooler
-                  td $7000
-                  td Paid
-                  td
-                     span(class="status delivered") Delivered     
-               tr
-                  td AC
-                  td $15000
-                  td Paid
-                  td
-                     span(class="status pending") pending
-               tr
-                  td Car
-                  td $20000
-                  td Paid
-                  td
-                     span(class="status pending") pending      
-               tr
-                  td Computers
-                  td $12000
-                  td Paid
-                  td
-                     span(class="status delivered") Delivered     
-               tr
-                  td Star Refrigerator
-                  td $12000
-                  td Paid
-                  td
-                     span(class="status delivered") Delivered   
-               tr
-                  td Star Refrigerator
-                  td $12000
-                  td Paid
-                  td
-                     span(class="status delivered") Delivered      
-               tr
-                  td Star Refrigerator
-                  td $12000
-                  td Paid
-                  td
-                     span(class="status delivered") Delivered     
-               tr
-                  td Star Refrigerator
-                  td $12000
-                  td Paid
-                  td
-                     span(class="status delivered") Delivered   
-               tr
-                  td Star Refrigerator
-                  td $12000
-                  td Paid
-                  td
-                     span(class="status delivered") Delivered      
-               tr
-                  td Star Refrigerator
-                  td $12000
-                  td Paid
-                  td
-                     span(class="status delivered") Delivered     
-               tr
-                  td Star Refrigerator
-                  td $12000
-                  td Paid
-                  td
-                     span(class="status delivered") Delivered   
+                  td Our Price 
+                  td Discount
+                  td Stock
+                  td View
+            tbody(id="table")
+            //-    tr
+            //-       td Cooler
+            //-       td $7000
+            //-       td Paid
+            //-       td
+            //-          span(class="status delivered") Delivered     
       // New customers
       div(class="recentCustomers")
          div(class="cardHeader")

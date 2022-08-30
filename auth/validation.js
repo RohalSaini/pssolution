@@ -1,5 +1,6 @@
 const { TokenValdiate } = require("../util/token");
 const HttpException = require('../util/HttpExceptionError');
+
 module.exports = {
   checkToken: (req, res, next) => {
     let token = req.get("authorization");
@@ -15,10 +16,10 @@ module.exports = {
          next();
        } else {
          //console.log("decoded is null",decoded);
-         next(new HttpException(400,"Access Denied! Unauthorized User"));
+         next(new HttpException(200,"Access Denied! Unauthorized User"));
        }
      }else {
-      next(new HttpException(400,"token is missing"));
+      next(new HttpException(200,"token is missing"));
      }
   },
 };

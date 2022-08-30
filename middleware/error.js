@@ -6,6 +6,7 @@ function error(error, request, response, next) {
     return response.status(status).json({
         error: message
     })
+    return;
   }
 
 module.exports =  error;  

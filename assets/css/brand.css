@@ -46,7 +46,7 @@
   margin: 0.2rem 0 1.2rem 0;
   width: calc(50% - 2rem);
 }
-.container main section[id=brand] .brand-content form .user-details .input-box input {
+.container main section[id=brand] .brand-content form .user-details .input-box input, .container main section[id=brand] .brand-content form .user-details .input-box textarea {
   height: 4.5rem;
   width: 100%;
   outline: none;
@@ -54,10 +54,28 @@
   padding-left: 1.5rem;
   font-size: 1.3rem;
 }
-.container main section[id=brand] .brand-content form .user-details .input-box input[type=file] {
+.container main section[id=brand] .brand-content form .user-details .input-box input[type=file], .container main section[id=brand] .brand-content form .user-details .input-box textarea[type=file] {
   border: none;
 }
-.container main section[id=brand] .brand-content form .user-details .input-box input:valid, .container main section[id=brand] .brand-content form .user-details .input-box input:focus {
+.container main section[id=brand] .brand-content form .user-details .input-box input:valid, .container main section[id=brand] .brand-content form .user-details .input-box input:focus, .container main section[id=brand] .brand-content form .user-details .input-box textarea:valid, .container main section[id=brand] .brand-content form .user-details .input-box textarea:focus {
+  background-color: #f0e7f4;
+}
+.container main section[id=brand] .brand-content form .user-details .input-box textarea {
+  height: 6rem;
+  padding: 0.2rem;
+}
+.container main section[id=brand] .brand-content form .user-details .input-box select {
+  height: 4.5rem;
+  width: 100%;
+  outline: none;
+  border: 0.1rem solid #ccc;
+  padding-left: 1.5rem;
+  font-size: 1.3rem;
+}
+.container main section[id=brand] .brand-content form .user-details .input-box select[type=file] {
+  border: none;
+}
+.container main section[id=brand] .brand-content form .user-details .input-box select:valid, .container main section[id=brand] .brand-content form .user-details .input-box select:focus {
   background-color: #f0e7f4;
 }
 .container main section[id=brand] .brand-content form .user-details .input-box .file {

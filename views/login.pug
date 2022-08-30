@@ -3,37 +3,21 @@ html
   head
     title Login Page
     style
-      include ../assets/css/forms.css
-    style
-      include ../assets/css/error.css  
-    script 
-      include ../js/form.js
-  body
-    div(class='card')
-      div(class='card_content')
-        div(class='card_title')
-            h1 Login
-        form(class='form' onsubmit="onSubmit(event)")  
-          div(class="text_field")
-            input(
-              type='email'
-              id= 'email'
-              required
-            ) 
-            span()
-            label(for="email") Email 
+      include ../assets/css/setStyle.css 
+  body(class="login")
+    div(class="center")
+      h1() Login
+      form(onsubmit="onAuthenticate(event)") 
+        div(class="txt_field")
+          input(required type='phone')
+          span
+          label Phone
 
-          div(class="text_field")
-            input(
-              type='password'
-              id='password'
-              required
-            ) 
-            span()
-            label(for="email") Password   
-          
-          input(
-            value ='Login'
-              type='submit'
-            )
-  include ./error.pug 
+        div(class="txt_field")
+          input(type="password" required)
+          span
+          label Password
+        input(type="submit" value="Login")
+      include ./error.pug
+      script
+        include ../js/login.js       

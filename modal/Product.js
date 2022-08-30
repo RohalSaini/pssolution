@@ -2,33 +2,45 @@ const Sequelize = require("sequelize");
 const sequelize = require('../config/Db');
 
 const Product = sequelize.define("product", {
-  serialNumber: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    primaryKey: true,
-  },
   name: {
-    type:Sequelize.STRING,
-    allowNull: false,
-    unique:true
-  },
-  price: {
-    type: Sequelize.FLOAT,
-    allowNull: false,
-  },
-  description: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  imageUrl:{
     type: Sequelize.STRING,
     allowNull: false
   },
-  type: {
-      type: Sequelize.STRING
+  productId: {
+    type: Sequelize.STRING,
+    allowNull: false,
   },
-  total: {
-      type: Sequelize.INTEGER
+  category: {
+    type:Sequelize.STRING,
+    allowNull: false
+  },
+  brand: {
+    type:Sequelize.STRING,
+    allowNull: false
+  },
+  quantity: {
+    type:Sequelize.STRING,
+    allowNull: false
+  },
+  price: {
+      type: Sequelize.FLOAT,
+      allowNull: false
+  },
+  discount: {
+      type: Sequelize.FLOAT,
+      allowNull: false
+  },
+  ourPrice: {
+    type: Sequelize.FLOAT,
+    allowNull: false
+  },
+  image: {
+    type:Sequelize.STRING,
+    allowNull: false
+  },
+  unique: {
+    type:Sequelize.STRING,
+    unique: true 
   }
 });
 

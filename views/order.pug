@@ -1,85 +1,24 @@
 doctype html
 html
-  head
-    title Add Item Page
-    style
-      include ../assets/css/nav.css
-    style
-      include ../assets/css/content.css
-    style
-      include ../assets/css/style.css
-    style
-      include ../assets/css/error.css    
-    script.
-      data =!{JSON.stringify(login)}
-    script
-      include ../js/checked.js      
-  body
-    include ./nav.pug
-    section(class="interface" id="interface") 
-      div(class="navigation")
-        div(class="n1")
-          div(class="menu" id="menu_btn")
-            div(class="line_1")
-            div(class="line_2")
-            div(class="line_3") 
-          div(class="search") 
-            input(type="text", name="" placeholder="Search")
-        
-        div(class="profile")
-          img(src="images/logo.png", alt="profile")
-      h3(class="page") Dashbaord
-      div(class="values")
-        div(class="val-box")
-          img(src="images/logo.png", alt="")
-          div 
-            h3 8,267
-            span Total Orders
-        div(class="val-box")
-          img(src="images/logo.png", alt="")
-          div 
-            h3 2,267
-            span Product Sell
-        div(class="val-box")
-          img(src="images/logo.png", alt="")
-          div 
-            h3 5,267
-            span Alvailable
-        div(class="val-box")
-          img(src="images/logo.png", alt="")
-          div 
-            h3 1,200
-            span This Month
-        
-      dir(class="board")
-        table(class="board_table")  
-          thead
-            tr
-              td Order
-              td CustomerId
-              td Bill
-              td Address
-              td Cart
-              td Checked
-              td Ship              
-          tbody
-          each item in login
-              tr
-                td(class="people-designation")
-                  p=item.orderNumber
-                td(class="people-designation")
-                  p=item.customerid
-                td(class="people-designation")
-                  p=item.bill  
-                td(class="people-designation")
-                  p=item.address
-                td(class="people-designation")
-                  p=item.cart  
-                td(class="people-designation")
-                  if item.checked === null
-                   p="FALSE"                     
-                td(class="edit")
-                  button(type='button' class=' btn' value="Continue" onclick=`onShip('${JSON.stringify(item)}')`) Ship   
-  include ./error.pug
-script
-      include ../js/menu.js
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='description', content='Some description')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title Dashboard Page
+        style
+            include ../assets/css/setStyle.css      
+        script.
+            dataObj =!{JSON.stringify(data)}    
+        <base href=".">                                                 
+    body
+        div(class="container")
+            include ./nav.pug
+            include ./modal.pug
+            include ./order_form.pug
+        script
+            include ../js/nav.js            
+    include ./error.pug                    
+        script(type='module' src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js") 
+        script(nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js")
+        script(type="module" src="./js/order.js") 

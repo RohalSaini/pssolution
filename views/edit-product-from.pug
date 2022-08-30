@@ -1,0 +1,46 @@
+main
+    div(class="topbar")
+        div( class="toggle")
+            <ion-icon name="grid-outline"></ion-icon> 
+        div(class="search")
+            label
+                input(type="text" placeholder="Search Here")
+                <ion-icon name="search-circle-outline" class="search-circle-outline"></ion-icon>
+        // user
+        div(class="user")
+            img(src="./images/system/avtar.jpg", alt="" style=" width: 3rem; height: 3rem")   
+
+    section(id="brand")
+        div(class="brand-content")
+            div(class="title") Edit Product 
+            p you can edit product to database from here !!!
+            form(action="#" onsubmit="onSaveProduct(event)" id="form")
+                div(class="user-details" id="userForm")
+                    div(class='input-box quantity')
+                        span(class="brand-details") Brand
+                        select(name='brand' id='brands' onchange="onChangeBrand(this)" ) 
+                    div(class='input-box quantity')
+                        span(class="brand-details") Category
+                        select(name='category' id='category' onchange="onChangeCategory(this)")
+                    div(class='input-box quantity')
+                        span(class="brand-details") Quantity
+                        select(name='quantity' id='quantity' onchange="onChangeQuantity(this)")
+                    div(class='input-box')
+                        span(class="brand-details") Name
+                        select(name='name' id='productName' onchange="onChangeProductName(this)")
+                        
+                    div(class='input-box')
+                        span(class="brand-details") Price
+                        input(type="number" placeholder="Enter Price " required id="price")
+                    div(class='input-box')
+                        span(class="brand-details") Discount
+                        input(type="number" placeholder="Enter discount " required id="discount")         
+                    div(class='input-box')
+                        span(class="brand-details") Our Price
+                        input(type="number" placeholder="Enter price " required id="ourPrice")    
+                    div(class='input-box')
+                        div(class="file")
+                            input(type="file")                                                                        
+                    div(class='button')
+                        input(type="submit" value="Edit Product")
+

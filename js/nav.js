@@ -1,9 +1,9 @@
-
 // Menu Toogle
 let toggle = document.querySelector(".toggle");
 let navigation = document.querySelector("header");
 let main = document.querySelector('main');
 
+const signOut = document.getElementById("signOut")
 
 toggle.onclick = function() {
     console.log("toogle clicked ==> checked");
@@ -26,3 +26,32 @@ list.forEach((item) => {
 })
 
 
+// for options 
+let ManageRef = document.querySelector(".manage");
+let ManageOptionRef = document.querySelector(".manage-show");
+let rotateRef = document.querySelector(".rotate");
+
+ManageRef.onclick = () => {
+    console.dir(ManageOptionRef);
+    ManageOptionRef.classList.toggle("showToggle");
+    rotateRef.classList.toggle("rotate");
+}
+
+
+// for options 
+let EditRef = document.querySelector(".edit");
+let ManageOptionEditRef = document.querySelector(".manage-edit");
+let EditrotateRef = document.querySelector(".edit-rotate");
+
+EditRef.onclick = () => {
+    ManageOptionEditRef.classList.toggle("showToggle");
+    EditrotateRef.classList.toggle("rotate");
+}
+
+
+signOut.onclick = () => {
+    localStorage.setItem("token",null);
+    localStorage.setItem("email",null);
+    localStorage.setItem("status",null);
+    location.href="/login"
+}

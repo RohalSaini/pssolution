@@ -1,0 +1,18 @@
+doctype html
+html
+    head
+        title  Add Product Page
+        style
+            include ../assets/css/setStyle.css
+                                  
+    body
+        div(class="container")
+            include ./nav.pug
+            include ./viewproduct-from.pug    
+        script
+            include ../js/nav.js       
+        script(type='module' src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js") 
+        script(nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js")  
+    include ./error.pug
+script
+    include ../js/viewproduct.js  

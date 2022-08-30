@@ -6,7 +6,11 @@ const Brand = sequelize.define("brand", {
     type: Sequelize.STRING,
     unique: true,
     allowNull:false
-  }
+  },
+  quantity:{
+    type:  Sequelize.TEXT,
+    allowNull: false
+  },
 });
 
 module.exports = Brand;

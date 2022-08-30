@@ -8,7 +8,7 @@ const adminLogin = (request,response,next) => {
     console.log("ADMIN LOGIN API CALL");
     let errors = validationResult(request);
     if(!errors.isEmpty()) {
-        next(new HttpException(400,errors.array()[0].msg))
+        next(new HttpException(200,errors.array()[0].msg))
     } else  {
         const email = request.body.email.trim();
         const password = request.body.password.trim()
@@ -87,18 +87,20 @@ const adminLogin = (request,response,next) => {
                     },
                     Option: {
                         codelist: pinlist
-                    }
+                    },
+                    status: true
                 })
             })
             .catch(error => {
                 return response.status(201).json({
                     data: {
                         token
-                    }
+                    },
+                    status: true
                 })
             })    
         }else {
-            next(new HttpException(400,"email | password error try again with valid email | password"));  
+            next(new HttpException(200,"email | password error try again with valid email | password"));  
         }
     }
 }

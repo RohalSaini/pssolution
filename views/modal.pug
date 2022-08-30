@@ -1,0 +1,26 @@
+div(id='myModal' class='modal')
+    div(class="modal-content")
+        span( class='close' id='msg') &times; 
+        p(class="text") Some Text
+
+
+div(class="popup" id="popup")
+    div(class="box")
+        <ion-icon name="alert-outline"></ion-icon>
+        h2(id="popup_msg") 
+        label(for="") Are you sure to proceed ?
+        div(class="btns")
+            button(class="btn1" id="yes") Yes
+            button(class="btn2" id="no") No         
+
+div(class="ok-Modal" id="okModal")
+    div(class="ok")
+        img(src="./images/system/tick.png", alt="Tick Image")
+        h2(id="order")
+        h2(id="name")
+        h3(id="customerAddress")
+        h3(id="cell")
+        h3(id="orderType")
+        h3(id="customerBill")
+        p(id="customerStock") 
+        button(id="ok-Modal-ok-Submission") Ok           

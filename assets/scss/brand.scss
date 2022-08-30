@@ -50,7 +50,7 @@
             .input-box {
               margin: .2rem 0 1.2rem 0;
               width: calc(100% / 2 - 2rem);
-              input {
+              input ,textarea{
                 height: 4.5rem;
                 width: 100%;
                 outline: none;
@@ -58,6 +58,25 @@
                 padding-left: 1.5rem;
                 font-size: 1.3rem;
 
+                &[type="file"] {
+                  border: none;
+                }
+                &:valid,&:focus {
+                  background-color:  lighten($color: v.$color2, $amount: 40%);
+                }
+              }
+
+              textarea {
+                height: 6rem;
+                padding: .2rem;
+              }
+              select {
+                height: 4.5rem;
+                width: 100%;
+                outline: none;
+                border: .1rem solid #ccc;
+                padding-left: 1.5rem;
+                font-size: 1.3rem;
                 &[type="file"] {
                   border: none;
                 }

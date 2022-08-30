@@ -1,0 +1,24 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='description', content='Some description')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title Dashboard Page
+        style
+            include ../assets/css/setStyle.css      
+        script.
+            dataObj =!{JSON.stringify(data)}    
+        <base href=".">                                                 
+    body
+        div(class="container")
+            include ./nav.pug
+            include ./modal.pug
+            include ./customer_form.pug
+        script
+            include ../js/nav.js            
+    include ./error.pug                    
+        script(type='module' src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js") 
+        script(nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js")
+        script(type="module" src="./js/customer.js") 

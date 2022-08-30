@@ -27,11 +27,12 @@ const addProductItem = (request, response, next) => {
         console.log(data);
         return response.status(201).json({
           data,
+          status: true
         });
       })
       .catch((error) => {
         console.log(error);
-        next(new HttpException(400, `Production creation error ${error}`));
+        next(new HttpException(200, `Production creation error ${error}`));
       });
   }
 };
@@ -60,18 +61,19 @@ module.exports = {
           console.log(data);
           return response.status(201).json({
             data,
+            status: true
           });
         })
         .catch((error) => {
           console.log(error);
-          next(new HttpException(400, `Production creation error ${error}`));
+          next(new HttpException(200, `Production creation error ${error}`));
         });
     }
   },
   editProductItem: async (request, response, next) => {
     let errors = validationResult(request);
     if (!errors.isEmpty()) {
-      next(new HttpException(400, errors.array()[0].msg));
+      next(new HttpException(200, errors.array()[0].msg));
     } else {
       const id = request.body.id.trim();
       const type = request.body.type.trim();
@@ -91,28 +93,12 @@ module.exports = {
         console.log(result);
         return response.status(201).json({
           data: result,
+          status: true
         });
       } catch (err) {
         console.log(err);
-        next(new HttpException(400, `Production creation error ${err}`));
+        next(new HttpException(200, `Production creation error ${err}`));
       }
-
-      //   Item.create({
-      //     type,
-      //     name,
-      //     serialNumber,
-      //     measurement,
-      //   })
-      //     .then((data) => {
-      //       console.log(data);
-      //       return response.status(201).json({
-      //         data,
-      //       });
-      //     })
-      //     .catch((error) => {
-      //       console.log(error);
-      //       next(new HttpException(400, `Production creation error ${error}`));
-      //     });
     }
   },
   deleteProductItem: async (request, response, next) => {
@@ -126,15 +112,16 @@ module.exports = {
 
       return response.status(201).json({
         data: itemData,
+        status: true
       });
     } catch (error) {
-      next(new HttpException(400, `Production creation error ${error}`));
+      next(new HttpException(200, `Production creation error ${error}`));
     }
   },
   multerRes: async (request, response, next) => {
     let errors = validationResult(request);
     if (!errors.isEmpty()) {
-      next(new HttpException(400, errors.array()[0].msg));
+      next(new HttpException(200, errors.array()[0].msg));
     } else {
       const id = request.body.id.trim();
       
@@ -164,10 +151,11 @@ module.exports = {
         }
         return response.status(201).json({
           data: result,
+          status: true
         });
       } catch (err) {
         console.log(err);
-        next(new HttpException(400, `Production creation error ${err}`));
+        next(new HttpException(200, `Production creation error ${err}`));
       }
     }
   },
